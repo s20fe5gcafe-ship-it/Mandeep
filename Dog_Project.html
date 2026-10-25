@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dog Breeds Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #a78bfa;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #7c3aed;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
+        }
+
+        /* ── Card ── */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            width: 400px;
+            max-width: 92vw;
+            padding: 32px 28px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* ── Header ── */
+        .card-header {
+            text-align: center;
+        }
+
+        .card-header .emoji {
+            font-size: 2.4rem;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .card-header h2 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .card-header p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.78rem;
+            margin-top: 2px;
+        }
+
+        /* ── Divider ── */
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ── Fields ── */
+        .field-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 5px;
+        }
+
+        .field {
+            border-radius: 10px;
+            padding: 10px 14px;
+            color: #fff;
+            font-size: 0.92rem;
+            line-height: 1.5;
+        }
+
+        .field.name-field {
+            background: rgba(167, 139, 250, 0.2);
+            border: 1px solid rgba(167, 139, 250, 0.4);
+            font-weight: 600;
+            font-size: 1rem;
+            min-height: 40px;
+        }
+
+        .field.desc-field {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            height: 130px;
+            overflow-y: auto;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ── Controls ── */
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .index-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        input[type='number'] {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type='number']::placeholder {
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        input[type='number']:focus {
+            border-color: #a78bfa;
+        }
+
+        /* hide spin arrows */
+        input[type='number']::-webkit-inner-spin-button,
+        input[type='number']::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+        }
+
+        /* ── Buttons ── */
+        button {
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        button:active {
+            transform: scale(0.96);
+        }
+
+        .btn-random {
+            flex: 1;
+            background: linear-gradient(135deg, #7c3aed, #a78bfa);
+            color: #fff;
+        }
+
+        .btn-random:hover {
+            opacity: 0.88;
+        }
+
+        .btn-clear {
+            background: rgba(255, 100, 100, 0.2);
+            border: 1px solid rgba(255, 100, 100, 0.4);
+            color: #fca5a5;
+        }
+
+        .btn-clear:hover {
+            background: rgba(255, 100, 100, 0.35);
+        }
+
+        .btn-show {
+            background: rgba(167, 139, 250, 0.2);
+            border: 1px solid rgba(167, 139, 250, 0.4);
+            color: #c4b5fd;
+        }
+
+        .btn-show:hover {
+            background: rgba(167, 139, 250, 0.35);
+        }
+
+        /* ── Loading / empty state text ── */
+        .muted {
+            color: rgba(255, 255, 255, 0.3);
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+
+        <!-- Header -->
+        <div class="card-header">
+            <span class="emoji">🐕</span>
+            <h2>Dog Breeds Explorer</h2>
+            <p>Discover breeds from the Dog API</p>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Name Field -->
+        <div>
+            <div class="field-label">Breed Name</div>
+            <div class="field name-field" id="nameField">
+                <span class="muted">Hit "Random" or enter a number below…</span>
+            </div>
+        </div>
+
+        <!-- Description Field -->
+        <div>
+            <div class="field-label">Description</div>
+            <div class="field desc-field" id="descField">
+                <span class="muted">No description yet.</span>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <div class="btn-row">
+                <button class="btn-random" id="randomBtn">🎲 Random</button>
+                <button class="btn-clear" id="clearBtn">✕ Clear</button>
+            </div>
+            <div class="index-row">
+                <input type="number" id="indexInput" min="1" max="30" placeholder="Enter index (1 – 30)" />
+                <button class="btn-show" id="showBtn">Show</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Main script -->
+    <script>
+        // main.js – fetches dog breed data and displays it on the card
+
+        const API_URL = "https://dogapi.dog/api/v2/breeds?page[number]=1";
+
+        const nameField = document.getElementById('nameField');
+        const descField = document.getElementById('descField');
+        const randomBtn = document.getElementById('randomBtn');
+        const showBtn = document.getElementById('showBtn');
+        const indexInput = document.getElementById('indexInput');
+
+        /** Fetch all breed data from the API */
+        async function fetchData() {
+            const res = await fetch(API_URL);
+            const json = await res.json();
+            return json.data;
+        }
+
+        /** Display the dog at the given array index */
+        async function showDog(idx) {
+            nameField.innerHTML = '<span class="muted">Loading…</span>';
+            descField.innerHTML = '<span class="muted">Loading…</span>';
+
+            const data = await fetchData();
+            const dog = data[idx];
+
+            nameField.textContent = dog.attributes.name;
+            descField.textContent = dog.attributes.description || 'No description available.';
+        }
+
+        // Random button: pick a random breed
+        randomBtn.addEventListener('click', async () => {
+            const data = await fetchData();
+            const idx = Math.floor(Math.random() * data.length);
+            await showDog(idx);
+        });
+
+        // Show button: display breed at the user-specified 1-based index
+        showBtn.addEventListener('click', async () => {
+            const val = parseInt(indexInput.value, 10);
+            if (isNaN(val) || val < 1 || val > 30) {
+                alert('Please enter a number between 1 and 30');
+                return;
+            }
+            await showDog(val - 1);
+        });
+
+        // clear.js – handles the "Clear" button to reset the displayed fields
+
+        const clearBtn = document.getElementById('clearBtn');
+
+        clearBtn.addEventListener('click', () => {
+            // Reset name and description fields to their empty-state look
+            nameField.innerHTML = '<span class="muted">Hit "Random" or enter a number below…</span>';
+            descField.innerHTML = '<span class="muted">No description yet.</span>';
+
+            // Also clear the number input
+            indexInput.value = '';
+        });
+
+    </script>
+</body>
+
+</html>
