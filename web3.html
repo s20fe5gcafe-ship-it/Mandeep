@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Landing Page</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #630bc1, #2575fc, #ff6a88, #ffb347);
+            background-size: 400% 400%;
+            animation: bg 10s ease-in infinite;
+            overflow-x: hidden;
+            color: white;
+        }
+
+        @keyframes bg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Floating circles */
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(8px);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .circle:nth-child(1) {
+            width: 220px;
+            height: 220px;
+            top: 5%;
+            left: -80px;
+        }
+
+        .circle:nth-child(2) {
+            width: 180px;
+            height: 180px;
+            right: -60px;
+            top: 40%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(3) {
+            width: 120px;
+            height: 120px;
+            bottom: 60px;
+            left: 7%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-30px);
+            }
+        }
+
+        /* Navbar */
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, .1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, .2);
+            border-radius: 50px;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #FFD54F;
+        }
+
+        /* Hero */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeUp 1s ease;
+            margin-right: 100px;
+            margin-left: 20px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: .9;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 42px;
+            background: white;
+            color: #333;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .35s;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: rgba(0, 0, 0, .35);
+            color: white;
+        }
+
+        /* Features */
+
+        .features {
+            padding: 80px 8%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .card1 {
+            background: rgba(255, 255, 255, .12);
+            backdrop-filter: blur(15px);
+            padding: 25px;
+            border-radius: 25px;
+            transition: .4s;
+            border: 1px solid rgba(255, 255, 255, .15);
+            margin: 25px;
+            animation: fadeUp 1s ease;
+        }
+
+        .card1:hover {
+            transform: translateY(-15px);
+            background: rgba(255, 255, 255, .18);
+        }
+
+        .card1 h2 {
+            margin: 20px 0;
+        }
+
+        .icon {
+            font-size: 55px;
+        }
+
+        /* Footer */
+
+        footer {
+            padding: 40px;
+            text-align: center;
+            opacity: .8;
+        }
+
+        /* Scroll animation */
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: 1s;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+
+        @media(max-width:768px) {
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 2nd login - register page started from here */
+
+
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            /* flex-wrap: wrap; */
+            justify-content: center;
+            padding: 20px;
+            margin-right: 30px;
+        }
+
+        .card {
+            height: 500px;
+            width: 280px;
+            padding: 25px;
+            animation: fadeUp 1s ease;
+            /* transform: translateY(-10%); */
+            /* transition: all 2s ease-in; */
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+            color: #fff;
+            transition: .4s;
+            margin-top: 40px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+
+        .card p {
+            text-align: center;
+            font-size: 15px;
+            margin-bottom: 18px;
+            opacity: .8;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 14px;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .2);
+            color: white;
+            font-size: 15px;
+        }
+
+        input::placeholder {
+            color: #eee;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #ffffff;
+            color: #764ba2;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+            color: #fff;
+        }
+
+        span {
+            display: block;
+            margin-top: 18px;
+            text-align: center;
+            cursor: pointer;
+            color: #f5f5f5;
+        }
+
+        span:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <nav>
+
+        <div class="logo">Nova</div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>Create Amazing Digital Experiences</h1>
+
+            <p>
+                Modern, elegant, and beautifully animated websites designed
+                to impress your visitors and grow your brand.
+            </p>
+
+            <a href="#" class="btn">Get Started</a>
+
+        </div>
+        <!-- login -->
+        <div class="container">
+            <div class="card">
+                <h2>Welcome Back</h2>
+                <p>Login to your account</p>
+
+                <form>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Password" required>
+
+                    <button type="submit">Login</button>
+                </form>
+
+                <span>Forgot Password?</span>
+            </div>
+
+            <!-- Register -->
+            <div class="card">
+                <h2>Create Account</h2>
+                <p>Join us today</p>
+
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Password" required>
+                    <input type="password" placeholder="Confirm Password" required>
+
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+
+        <div class="card1 hidden show">
+            <div class="icon">🚀</div>
+            <h2>Fast Performance</h2>
+            <p>
+                Lightning-fast loading speed with optimized layouts and smooth animations.
+            </p>
+        </div>
+
+        <div class="card1 hidden show">
+            <div class="icon">🎨</div>
+            <h2>Creative Design</h2>
+            <p>
+                Modern glassmorphism design with colorful gradients and interactive effects.
+            </p>
+        </div>
+
+        <div class="card1 hidden show">
+            <div class="icon">📱</div>
+            <h2>Responsive</h2>
+            <p>
+                Looks beautiful on desktop, tablet, and mobile devices.
+            </p>
+        </div>
+
+        <div class="card1 hidden show">
+            <div class="icon">⚡</div>
+            <h2>Interactive</h2>
+            <p>
+                Smooth scrolling animations and delightful user interactions.
+            </p>
+        </div>
+
+    </section>
+
+    <footer>
+
+        © 2026 Nova Creative. Designed with HTML, CSS & JavaScript.
+
+    </footer>
+
+    <script>
+
+        // Scroll Animation
+
+        const observer = new IntersectionObserver(entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        });
+
+        document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
+
+        // Mouse Movement Effect
+
+        document.addEventListener("mousemove", (e) => {
+
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            document.querySelectorAll(".circle").forEach((circle, index) => {
+
+                const speed = (index + 1) * 20;
+
+                circle.style.transform =
+                    `translate(${x * speed}px,${y * speed}px)`;
+
+            });
+
+        });
+
+        // Smooth Button Click
+
+        document.querySelector(".btn").addEventListener("click", (e) => {
+
+            e.preventDefault();
+
+            window.scrollTo({
+
+                top: document.querySelector(".features").offsetTop,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+    </script>
+
+</body>
+
+</html>
