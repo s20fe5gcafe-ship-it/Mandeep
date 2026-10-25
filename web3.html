@@ -22,6 +22,7 @@
             animation: bg 10s ease-in infinite;
             overflow-x: hidden;
             color: white;
+            min-height: 100vh;
         }
 
         @keyframes bg {
@@ -46,6 +47,7 @@
             background: rgba(255, 255, 255, .08);
             backdrop-filter: blur(8px);
             animation: float 8s ease-in-out infinite;
+            pointer-events: none;
         }
 
         .circle:nth-child(1) {
@@ -131,32 +133,33 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 120px 20px;
+            text-align: left;
+            padding: 120px 5% 60px;
+            gap: 40px;
         }
 
         .hero-content {
-            max-width: 850px;
+            flex: 1;
+            max-width: 600px;
             animation: fadeUp 1s ease;
-            margin-right: 100px;
-            margin-left: 20px;
         }
 
         .hero h1 {
-            font-size: 70px;
-            line-height: 1.1;
+            font-size: 58px;
+            line-height: 1.15;
             margin-bottom: 20px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 18px;
             opacity: .9;
             margin-bottom: 35px;
+            line-height: 1.6;
         }
 
         .btn {
             display: inline-block;
-            padding: 18px 42px;
+            padding: 16px 40px;
             background: white;
             color: #333;
             border-radius: 50px;
@@ -164,53 +167,165 @@
             font-weight: 600;
             transition: .35s;
             box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+            text-align: center;
         }
 
         .btn:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-4px) scale(1.03);
             background: rgba(0, 0, 0, .35);
             color: white;
+        }
+
+        /* Login & Register Cards */
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 290px;
+            min-height: 480px;
+            padding: 30px 24px;
+            animation: fadeUp 1s ease;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+            color: #fff;
+            transition: transform .35s ease, box-shadow .35s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+        }
+
+        .card h2 {
+            text-align: center;
+            margin-bottom: 8px;
+            font-size: 24px;
+        }
+
+        .card p {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: .85;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin: 8px 0;
+            padding: 13px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            outline: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, .2);
+            color: white;
+            font-size: 14.5px;
+            transition: border-color .2s;
+        }
+
+        input:focus {
+            border-color: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, .28);
+        }
+
+        input::placeholder {
+            color: #eee;
+        }
+
+        button {
+            margin-top: 14px;
+            padding: 13px;
+            border: none;
+            border-radius: 12px;
+            background: #ffffff;
+            color: #764ba2;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        span {
+            display: block;
+            margin-top: 16px;
+            text-align: center;
+            cursor: pointer;
+            color: #f5f5f5;
+            font-size: 13.5px;
+        }
+
+        span:hover {
+            text-decoration: underline;
         }
 
         /* Features */
 
         .features {
-            padding: 80px 8%;
+            padding: 60px 8% 80px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
         }
 
         .card1 {
             background: rgba(255, 255, 255, .12);
             backdrop-filter: blur(15px);
-            padding: 25px;
-            border-radius: 25px;
+            padding: 30px 25px;
+            border-radius: 20px;
             transition: .4s;
             border: 1px solid rgba(255, 255, 255, .15);
-            margin: 25px;
             animation: fadeUp 1s ease;
         }
 
         .card1:hover {
-            transform: translateY(-15px);
+            transform: translateY(-10px);
             background: rgba(255, 255, 255, .18);
         }
 
         .card1 h2 {
-            margin: 20px 0;
+            margin: 15px 0 10px;
+            font-size: 22px;
+        }
+
+        .card1 p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            opacity: 0.9;
         }
 
         .icon {
-            font-size: 55px;
+            font-size: 48px;
         }
 
         /* Footer */
 
         footer {
-            padding: 40px;
+            padding: 35px 20px;
             text-align: center;
-            opacity: .8;
+            opacity: .85;
+            font-size: 14px;
         }
 
         /* Scroll animation */
@@ -238,134 +353,165 @@
             }
         }
 
-        /* Responsive */
+        /* ====================================================
+           RESPONSIVE MEDIA QUERIES
+           ==================================================== */
 
-        @media(max-width:768px) {
+        /* Laptops & Tablets (max-width: 1024px) */
+        @media (max-width: 1024px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 130px 30px 50px;
+                gap: 50px;
+            }
+
+            .hero-content {
+                max-width: 750px;
+                margin: 0 auto;
+            }
 
             .hero h1 {
-                font-size: 45px;
+                font-size: 48px;
+            }
+
+            .container {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Tablets & Mobile Devices (max-width: 768px) */
+        @media (max-width: 768px) {
+            nav {
+                padding: 12px 24px;
+                width: 92%;
+            }
+
+            .logo {
+                font-size: 24px;
             }
 
             nav ul {
                 display: none;
             }
 
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
+            .hero {
+                padding: 110px 20px 40px;
+                min-height: auto;
             }
 
-            50% {
-                background-position: 100% 50%;
+            .hero h1 {
+                font-size: 38px;
             }
 
-            100% {
-                background-position: 0% 50%;
+            .hero p {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+
+            .btn {
+                padding: 14px 34px;
+                font-size: 15px;
+            }
+
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 20px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 360px;
+                min-height: auto;
+                padding: 25px 20px;
+            }
+
+            .features {
+                padding: 40px 5% 60px;
+                gap: 20px;
+            }
+
+            .circle:nth-child(1) {
+                width: 140px;
+                height: 140px;
+            }
+
+            .circle:nth-child(2) {
+                width: 110px;
+                height: 110px;
+            }
+
+            .circle:nth-child(3) {
+                width: 80px;
+                height: 80px;
             }
         }
 
-        /* 2nd login - register page started from here */
+        /* Small Phones (max-width: 480px) */
+        @media (max-width: 480px) {
+            nav {
+                top: 12px;
+                padding: 10px 20px;
+            }
 
+            .logo {
+                font-size: 20px;
+            }
 
+            .hero {
+                padding: 95px 15px 30px;
+            }
 
-        .container {
-            display: flex;
-            flex-direction: row;
-            gap: 30px;
-            /* flex-wrap: wrap; */
-            justify-content: center;
-            padding: 20px;
-            margin-right: 30px;
-        }
+            .hero h1 {
+                font-size: 30px;
+                line-height: 1.25;
+            }
 
-        .card {
-            height: 500px;
-            width: 280px;
-            padding: 25px;
-            animation: fadeUp 1s ease;
-            /* transform: translateY(-10%); */
-            /* transition: all 2s ease-in; */
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
-            color: #fff;
-            transition: .4s;
-            margin-top: 40px;
-        }
+            .hero p {
+                font-size: 14.5px;
+            }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
-        }
+            .btn {
+                width: 100%;
+                display: block;
+            }
 
-        .card h2 {
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 25px;
-        }
+            .card {
+                padding: 22px 18px;
+            }
 
-        .card p {
-            text-align: center;
-            font-size: 15px;
-            margin-bottom: 18px;
-            opacity: .8;
-        }
+            .card h2 {
+                font-size: 21px;
+            }
 
-        form {
-            display: flex;
-            flex-direction: column;
-        }
+            input,
+            button {
+                padding: 12px;
+                font-size: 14px;
+            }
 
-        input {
-            margin: 10px 0;
-            padding: 14px;
-            border: none;
-            outline: none;
-            border-radius: 10px;
-            background: rgba(255, 255, 255, .2);
-            color: white;
-            font-size: 15px;
-        }
+            .features {
+                grid-template-columns: 1fr;
+                padding: 30px 15px 50px;
+            }
 
-        input::placeholder {
-            color: #eee;
-        }
+            .card1 {
+                padding: 22px;
+            }
 
-        button {
-            margin-top: 15px;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background: #ffffff;
-            color: #764ba2;
-            font-size: 17px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: .3s;
-        }
+            .icon {
+                font-size: 40px;
+            }
 
-        button:hover {
-            background: #764ba2;
-            color: #fff;
-        }
-
-        span {
-            display: block;
-            margin-top: 18px;
-            text-align: center;
-            cursor: pointer;
-            color: #f5f5f5;
-        }
-
-        span:hover {
-            text-decoration: underline;
+            footer {
+                padding: 25px 15px;
+                font-size: 12.5px;
+            }
         }
     </style>
-
 </head>
 
 <body>
@@ -375,9 +521,7 @@
     <div class="circle"></div>
 
     <nav>
-
         <div class="logo">Nova</div>
-
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -385,36 +529,29 @@
             <li><a href="#">Portfolio</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
-
     </nav>
 
     <section class="hero">
-
         <div class="hero-content">
-
             <h1>Create Amazing Digital Experiences</h1>
-
             <p>
                 Modern, elegant, and beautifully animated websites designed
                 to impress your visitors and grow your brand.
             </p>
-
             <a href="#" class="btn">Get Started</a>
-
         </div>
-        <!-- login -->
+
+        <!-- Login & Register Container -->
         <div class="container">
+            <!-- Login -->
             <div class="card">
                 <h2>Welcome Back</h2>
                 <p>Login to your account</p>
-
                 <form>
                     <input type="email" placeholder="Email Address" required>
                     <input type="password" placeholder="Password" required>
-
                     <button type="submit">Login</button>
                 </form>
-
                 <span>Forgot Password?</span>
             </div>
 
@@ -422,13 +559,11 @@
             <div class="card">
                 <h2>Create Account</h2>
                 <p>Join us today</p>
-
                 <form>
                     <input type="text" placeholder="Full Name" required>
                     <input type="email" placeholder="Email Address" required>
                     <input type="password" placeholder="Password" required>
                     <input type="password" placeholder="Confirm Password" required>
-
                     <button type="submit">Register</button>
                 </form>
             </div>
@@ -436,7 +571,6 @@
     </section>
 
     <section class="features">
-
         <div class="card1 hidden show">
             <div class="icon">🚀</div>
             <h2>Fast Performance</h2>
@@ -468,69 +602,43 @@
                 Smooth scrolling animations and delightful user interactions.
             </p>
         </div>
-
     </section>
 
     <footer>
-
         © 2026 Nova Creative. Designed with HTML, CSS & JavaScript.
-
     </footer>
 
     <script>
-
         // Scroll Animation
-
         const observer = new IntersectionObserver(entries => {
-
             entries.forEach(entry => {
-
                 if (entry.isIntersecting) {
-
                     entry.target.classList.add("show");
-
                 }
-
             });
-
         });
 
         document.querySelectorAll(".hidden").forEach(el => observer.observe(el));
 
         // Mouse Movement Effect
-
         document.addEventListener("mousemove", (e) => {
-
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
 
             document.querySelectorAll(".circle").forEach((circle, index) => {
-
                 const speed = (index + 1) * 20;
-
-                circle.style.transform =
-                    `translate(${x * speed}px,${y * speed}px)`;
-
+                circle.style.transform = `translate(${x * speed}px,${y * speed}px)`;
             });
-
         });
 
         // Smooth Button Click
-
         document.querySelector(".btn").addEventListener("click", (e) => {
-
             e.preventDefault();
-
             window.scrollTo({
-
                 top: document.querySelector(".features").offsetTop,
-
                 behavior: "smooth"
-
             });
-
         });
-
     </script>
 
 </body>
