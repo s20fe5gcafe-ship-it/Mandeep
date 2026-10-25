@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glowing Border Cards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #0a0a0f;
+            font-family: 'Poppins', sans-serif;
+            gap: 60px;
+            padding: 60px 20px;
+        }
+
+        /* ── Page title ── */
+        .page-title {
+            text-align: center;
+        }
+
+        .page-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            background: conic-gradient(#ff0000, #fffb00, #48ff00, #00ffd5, #ff00c8, #ff0000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+        }
+
+        .page-title p {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        /* ── Card grid ── */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ─────────────────────────────────────────────────
+           GLOW CARD
+           KEY: must be display:flex + justify/align center
+           so that the absolutely-positioned ::before gets
+           its static position at the card's center.
+           overflow:hidden clips the oversized spinner.
+        ───────────────────────────────────────────────── */
+        .glow-card {
+            position: relative;
+            display: flex;
+            /* ← CRITICAL: centers ::before static position */
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            overflow: hidden;
+            /* clips the spinning ::before */
+            cursor: default;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* The spinning gradient layer — oversized so all 4 edges are always covered */
+        .glow-card::before {
+            content: "";
+            position: absolute;
+            /* static position = flex center of parent */
+            width: 150%;
+            /* wider than card */
+            height: 220%;
+            /* taller than card — same ratio as original */
+            z-index: 0;
+            animation: spin 2s linear infinite;
+        }
+
+        /* Inner panel — covers the card leaving only a thin border strip */
+        .glow-card .inner {
+            position: relative;
+            z-index: 1;
+            width: calc(100% - 8px);
+            /* 4px border on each side */
+            height: calc(100% - 8px);
+            /* 4px border on top & bottom */
+            border-radius: 16px;
+            background: #0d0d18;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+            padding: 28px 24px;
+            transition: background 0.3s;
+        }
+
+        .glow-card:hover .inner {
+            background: #111130;
+        }
+
+        /* Lift on hover */
+        .glow-card:hover {
+            transform: translateY(-5px) scale(1.03);
+        }
+
+        /* ── Spin keyframe ── */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ─────────────────────────────────────────────────
+           GRADIENT VARIANTS
+        ───────────────────────────────────────────────── */
+
+        /* 1. Rainbow */
+        .card-rainbow::before {
+            background: conic-gradient(#ff0000, #fffb00, #48ff00, #00ffd5, #ff00c8, #ff0000);
+        }
+
+        .card-rainbow:hover {
+            box-shadow: 0 0 30px 8px rgba(255, 0, 200, 0.45),
+                0 0 70px 16px rgba(72, 255, 0, 0.2);
+        }
+
+        /* 2. Electric blue-purple */
+        .card-blue::before {
+            background: conic-gradient(#9df8ff, #7b2fff, #00ffff);
+            animation-duration: 2s;
+        }
+
+        .card-blue:hover {
+            box-shadow: 0 0 30px 8px rgba(0, 240, 255, 0.5),
+                0 0 70px 16px rgba(123, 47, 255, 0.25);
+        }
+
+        /* 3. Fire */
+        .card-fire::before {
+            background: conic-gradient(#ff4500, #ff8c00, #ffd700, #ff4500);
+            animation-duration: 2s;
+        }
+
+        .card-fire:hover {
+            box-shadow: 0 0 30px 8px rgba(255, 140, 0, 0.55),
+                0 0 70px 16px rgba(255, 69, 0, 0.3);
+        }
+
+        /* 4. Neon green */
+        .card-neon::before {
+            background: conic-gradient(#00ff88, #00ffee, #a8ff00, #00ff88);
+            animation-duration: 2s;
+        }
+
+        .card-neon:hover {
+            box-shadow: 0 0 30px 8px rgba(0, 255, 136, 0.5),
+                0 0 70px 16px rgba(168, 255, 0, 0.25);
+        }
+
+        /* 5. Featured — pink-gold */
+        .card-featured::before {
+            background: conic-gradient(#ff0080, #ff8c00, #ffd700, #ff0080);
+            animation-duration: 2s;
+        }
+
+        .card-featured:hover {
+            box-shadow: 0 0 35px 10px rgba(255, 0, 128, 0.5),
+                0 0 80px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .card-featured .inner {
+            padding: 36px 32px;
+        }
+
+        /* ── Sizes ── */
+        .card-sm {
+            width: 200px;
+            height: 140px;
+        }
+
+        .card-lg {
+            width: 340px;
+            height: 200px;
+        }
+
+        /* ── Content ── */
+        .card-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.3px;
+        }
+
+        .card-sub {
+            font-size: 0.72rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .card-lg .card-icon {
+            font-size: 2.4rem;
+        }
+
+        .card-lg .card-title {
+            font-size: 1.2rem;
+        }
+
+        .card-lg .card-sub {
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .b-rainbow {
+            background: linear-gradient(90deg, #ff0080, #ff8c00, #40e0d0);
+        }
+
+        .b-blue {
+            background: linear-gradient(90deg, #00f0ff, #5e02fe);
+        }
+
+        .b-fire {
+            background: linear-gradient(90deg, #ff4500, #ffd700);
+        }
+
+        .b-neon {
+            background: linear-gradient(90deg, #00ff88, #a8ff00);
+            color: #000;
+        }
+
+        .b-gold {
+            background: linear-gradient(90deg, #ff0080, #ffd700);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Heading -->
+    <div class="page-title">
+        <h1>✦ Glowing Border Cards ✦</h1>
+        <p>CSS conic-gradient spinning border animation</p>
+    </div>
+
+    <!-- Small cards -->
+    <div class="card-grid">
+
+        <div class="glow-card card-rainbow card-sm">
+            <div class="inner">
+                <span class="card-icon">🌈</span>
+                <span class="card-title">Rainbow</span>
+                <span class="badge b-rainbow">Spectrum</span>
+            </div>
+        </div>
+
+        <div class="glow-card card-blue card-sm">
+            <div class="inner">
+                <span class="card-icon">⚡</span>
+                <span class="card-title">Electric</span>
+                <span class="badge b-blue">Plasma</span>
+            </div>
+        </div>
+
+        <div class="glow-card card-fire card-sm">
+            <div class="inner">
+                <span class="card-icon">🔥</span>
+                <span class="card-title">Fire</span>
+                <span class="badge b-fire">Blaze</span>
+            </div>
+        </div>
+
+        <div class="glow-card card-neon card-sm">
+            <div class="inner">
+                <span class="card-icon">💚</span>
+                <span class="card-title">Neon</span>
+                <span class="badge b-neon">Glow</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Featured large card -->
+    <div class="glow-card card-featured card-lg">
+        <div class="inner">
+            <span class="card-icon">✨</span>
+            <span class="card-title">Featured Glowing Card</span>
+            <span class="card-sub">Hover any card to see it lift and glow</span>
+            <span class="badge b-gold">Full Spectrum</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
