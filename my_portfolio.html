@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandeep Singh — Front-End Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="a_resume_style.css">
+</head>
+
+<body>
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <canvas id="c"></canvas>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        <span class="announcement-pill">NEW</span>
+        Available for freelance &amp; full-time roles — Let's build something amazing together! 🚀
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo-wrap">
+            <div class="logo-icon">❄️</div>
+            <span class="logo-text">PORTFOLIO</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#">🔰 Home</a></li>
+            <li><a href="#summary">👤 Summary</a></li>
+            <li><a href="#projects">👤 Projects</a></li>
+            <li><a href="#skills">⚡ Skills</a></li>
+            <li><a href="#education">🎓 Education</a></li>
+            <li><a href="#contact">📍 Contact &amp; Address</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+                <img src="moon-dark-theme-svgrepo-com.svg" alt="Theme icon" class="theme-icon" id="themeIcon" />
+            </button>
+            <a href="tel:+918708513764" class="btn-ghost">Call Me</a>
+            <a href="#contact" class="btn-pill">Hire Me ✨</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-left">
+                <div class="hero-badge">
+                    <div class="dot"></div>
+                    Available for Work
+                </div>
+                <h1 class="hero-title">
+                    <span class="name">I'm Mandeep Singh.</span><br />
+                    <span class="role">I Build Beautiful<br />Web Experiences.</span>
+                </h1>
+                <p class="hero-sub">
+                    <strong>Full Stack Web Developer</strong> crafting responsive, pixel-perfect interfaces.
+                    Leveraging AI-assisted development to ship faster, smarter, and cleaner web products.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-hero-primary">✨ See Projects</a>
+                    <a href="" class="btn-hero-secondary">✉️ Downoad Resume</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="badge-float top-left">
+                    <div class="bdot"></div>
+                    Open to Work
+                </div>
+                <div class="image-card">
+                    <img src="https://i.pinimg.com/736x/e7/e9/3a/e7e93a0bafe7cbdf42b7d3c1e49169af.jpg"
+                        alt="Mandeep Singh" />
+                </div>
+                <div class="badge-float bot-right">
+                    ⚡ AI-Powered Dev
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stats-inner" style="background-color: var(--text);">
+                <div class="tagline">
+                    <h2 class="section-title a1" style="color: var(--bg);">
+                        &nbsp; Thoughtful Code , Creative Design , &nbsp;&nbsp;<span class="gradient-text">Beautiful
+                            Build .</span></h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Summary Section -->
+        <section class="summary-section" id="summary" style="margin-top: 4%;">
+            <div class="section-header">
+                <div class="section-badge">👤 Professional Profile</div>
+                <h2 class="section-title">Professional <span class="gradient-text">Summary</span></h2>
+                <p class="section-subtitle">
+                    A snapshot of my development ethos, technical background, and passion for creating modern digital
+                    interfaces.
+                </p>
+            </div>
+
+            <div class="summary-container">
+                <!-- Main Summary Card -->
+                <div class="summary-main-card">
+                    <div class="summary-quote">
+                        Bridging clean architecture and sleek design to build performant, user-first web applications.
+                    </div>
+                    <p class="summary-text">
+                        I am an energetic and detail-oriented <strong>Full Stack Web Developer</strong> holding a
+                        <strong>Bachelor of Computer Applications (BCA)</strong> degree from <strong>Kurukshetra
+                            University</strong>. I specialize in designing and engineering accessible, modern, and
+                        high-performance client-side web experiences.
+                    </p>
+
+                    <div class="summary-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🎯</div>
+                            <div>
+                                <h4>Pixel-Perfect UI</h4>
+                                <p>Modern layouts, smooth glassmorphism aesthetics, and clean micro-interactions.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">⚡</div>
+                            <div>
+                                <h4>Fast &amp; Optimized</h4>
+                                <p>Lightweight DOM trees, zero bloat, cross-browser compatibility, and quick load times.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">📱</div>
+                            <div>
+                                <h4>Mobile-First Responsive</h4>
+                                <p>Fluid media queries and flexible grids tailored for smartphones, tablets, and
+                                    desktops.</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-icon">🤖</div>
+                            <div>
+                                <h4>AI-Powered Velocity</h4>
+                                <p>Accelerating workflows with AI tooling for prompt prototyping, refactoring, and
+                                    debugging.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Info Card -->
+                <div class="summary-profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">👨‍💻</div>
+                        <div class="profile-status">
+                            <span class="pdot"></span> Open to Work
+                        </div>
+                    </div>
+                    <h3 class="profile-name">Mandeep Singh</h3>
+                    <p class="profile-role">Front-End Developer</p>
+
+                    <div class="profile-info-list">
+                        <div class="profile-info-row">
+                            <span class="info-label">Degree</span>
+                            <span class="info-value">BCA Graduate</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="info-label">University</span>
+                            <span class="info-value">Kurukshetra University</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="info-label">Location</span>
+                            <span class="info-value">Kurukshetra, Haryana, India</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="info-label">Availability</span>
+                            <span class="info-value text-green">Immediate Joiner</span>
+                        </div>
+                        <div class="profile-info-row">
+                            <span class="info-label">Role Focus</span>
+                            <span class="info-value">Full Stack &amp; UI Design</span>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <a href="#contact" class="btn-profile-primary">Get In Touch</a>
+                        <a href="tel:+918708513764" class="btn-profile-secondary">Quick Call 📞</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- projects -->
+        <div id="projects" class="section-header projects" style="margin-top: 4%;">
+            <div class="section-badge">👤 Creative Projects</div>
+            <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+            <p class="section-subtitle">
+                A snapshot of my development ethos, and passion for creating modern digital
+                interfaces.
+            </p>
+        </div>
+        <main class="page">
+            <section class="grid" aria-label="Selected projects">
+                <article class="card">
+                    <div class="card-top"><span class="category">Digital product · Fintech</span><span
+                            class="year">2026</span></div>
+                    <div>
+                        <h2>Common Ground</h2>
+                        <p class="description">A calmer way to understand your money. We shaped a friendly financial
+                            platform that makes everyday decisions feel clear.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="tags"><span class="tag">Strategy</span><span class="tag">Product design</span></div>
+                        <a class="visit" href="https://example.com" target="_blank" rel="noreferrer">Visit project <svg
+                                viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 12 12 4M5 4h7v7" stroke="currentColor" stroke-width="1.4"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-top"><span class="category">Brand identity · Culture</span><span
+                            class="year">2026</span></div>
+                    <div>
+                        <h2>Sunday Supply</h2>
+                        <p class="description">A considered identity for the everyday ritual. Warm colors and an
+                            expressive
+                            type system bring a modern homeware label to life.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="tags"><span class="tag">Branding</span><span class="tag">Art direction</span></div>
+                        <a class="visit" href="https://example.com" target="_blank" rel="noreferrer">Visit project <svg
+                                viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 12 12 4M5 4h7v7" stroke="currentColor" stroke-width="1.4"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-top"><span class="category">Web experience · Climate</span><span
+                            class="year">2026</span></div>
+                    <div>
+                        <h2>Fieldnotes</h2>
+                        <p class="description">Making the climate story tangible. An editorial platform turns complex
+                            research into accessible stories and small actions.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="tags"><span class="tag">Web design</span><span class="tag">Development</span></div>
+                        <a class="visit" href="https://example.com" target="_blank" rel="noreferrer">Visit project <svg
+                                viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 12 12 4M5 4h7v7" stroke="currentColor" stroke-width="1.4"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-top"><span class="category">Mobile app · Wellbeing</span><span
+                            class="year">2026</span>
+                    </div>
+                    <div>
+                        <h2>Slow Hour</h2>
+                        <p class="description">A gentle nudge to make room for yourself. We designed a mindful companion
+                            that helps create restorative daily habits.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="tags"><span class="tag">Product design</span><span class="tag">Research</span></div>
+                        <a class="visit" href="https://example.com" target="_blank" rel="noreferrer">Visit project <svg
+                                viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 12 12 4M5 4h7v7" stroke="currentColor" stroke-width="1.4"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-top"><span class="category">E-commerce · Food</span><span class="year">2026</span>
+                    </div>
+                    <div>
+                        <h2>Good Measure</h2>
+                        <p class="description">A fresh digital home for better pantry staples. A simple, tactile
+                            shopping
+                            experience helps thoughtful food find its people.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="tags"><span class="tag">E-commerce</span><span class="tag">Branding</span></div><a
+                            class="visit" href="https://example.com" target="_blank" rel="noreferrer">Visit project <svg
+                                viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 12 12 4M5 4h7v7" stroke="currentColor" stroke-width="1.4"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                </article>
+                <article class="card">
+                    <div class="card-top"><span class="category">Platform · Community</span><span
+                            class="year">2026</span>
+                    </div>
+                    <div>
+                        <h2>Openhouse</h2>
+                        <p class="description">Helping local makers find their next audience. A welcoming directory
+                            connects
+                            independent shops with curious neighbors.</p>
+                    </div>
+                    <div class="card-bottom">
+                        <div class="tags"><span class="tag">UX design</span><span class="tag">Web design</span></div><a
+                            class="visit" href="https://example.com" target="_blank" rel="noreferrer">Visit project <svg
+                                viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                <path d="M4 12 12 4M5 4h7v7" stroke="currentColor" stroke-width="1.4"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></a>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+
+        <!-- Skills Section -->
+        <section class="skills-section" id="skills">
+            <div class="section-header">
+                <div class="section-badge">⚡ Core Competencies</div>
+                <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+                <p class="section-subtitle">
+                    Foundational front-end technologies I leverage to build clean, fast, and responsive user
+                    experiences.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- HTML5 Card -->
+                <div class="skill-card skill-card-html">
+                    <div class="skill-top">
+                        <div class="skill-icon-wrap icon-html">
+                            &lt;/&gt;
+                        </div>
+                        <span class="skill-badge">Structure &amp; SEO</span>
+                    </div>
+                    <h3 class="skill-name">HTML5</h3>
+                    <p class="skill-desc">
+                        Structure for every idea.
+                    </p>
+                    <div class="skill-meter-wrap">
+                        <div class="skill-meter-info">
+                            <span>Proficiency</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill fill-html"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Semantic Tags</span>
+                        <span class="skill-tag">Accessibility (a11y)</span>
+                        <span class="skill-tag">SEO Friendly</span>
+                        <span class="skill-tag">Forms &amp; Validation</span>
+                    </div>
+                </div>
+
+                <!-- CSS3 Card -->
+                <div class="skill-card skill-card-css">
+                    <div class="skill-top">
+                        <div class="skill-icon-wrap icon-css">
+                            { }
+                        </div>
+                        <span class="skill-badge">Design &amp; Layout</span>
+                    </div>
+                    <h3 class="skill-name">CSS3</h3>
+                    <p class="skill-desc">
+                        Make the web look alive.
+                    </p>
+                    <div class="skill-meter-wrap">
+                        <div class="skill-meter-info">
+                            <span>Proficiency</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill fill-css"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Flexbox &amp; Grid</span>
+                        <span class="skill-tag">Responsive Media Queries</span>
+                        <span class="skill-tag">Keyframe Animations</span>
+                        <span class="skill-tag">CSS Variables</span>
+                    </div>
+                </div>
+
+                <!-- JavaScript Card -->
+                <div class="skill-card skill-card-js">
+                    <div class="skill-top">
+                        <div class="skill-icon-wrap icon-js">
+                            JS
+                        </div>
+                        <span class="skill-badge">Logic &amp; Interactivity</span>
+                    </div>
+                    <h3 class="skill-name">JavaScript (ES6+)</h3>
+                    <p class="skill-desc">
+                        Bring every interaction to life.
+                    </p>
+                    <div class="skill-meter-wrap">
+                        <div class="skill-meter-info">
+                            <span>Proficiency</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill fill-js"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">DOM Manipulation</span>
+                        <span class="skill-tag">ES6+ Features</span>
+                        <span class="skill-tag">Event Handling</span>
+                        <span class="skill-tag">Async / Fetch API</span>
+                    </div>
+                </div>
+                <!-- Node.js Card -->
+                <div class="skill-card skill-card-css">
+                    <div class="skill-top">
+                        <div class="skill-icon-wrap icon-css">
+                            🟩
+                        </div>
+                        <span class="skill-badge">Runtime &amp; Server</span>
+                    </div>
+                    <h3 class="skill-name">Node.js</h3>
+                    <p class="skill-desc">
+                        JavaScript beyond the browser.
+                    </p>
+                    <div class="skill-meter-wrap">
+                        <div class="skill-meter-info">
+                            <span>Proficiency</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill fill-css"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+
+                        <span class="skill-tag">Event-Driven &amp; Server</span>
+                        <span class="skill-tag">NPM</span>
+                        <span class="skill-tag">File System</span>
+                        <span class="skill-tag">Modules</span>
+                    </div>
+                </div>
+                <!-- Express Card -->
+                <div class="skill-card skill-card-js">
+                    <div class="skill-top">
+                        <div class="skill-icon-wrap icon-js">
+                            ⚡
+                        </div>
+                        <span class="skill-badge">REST APIS</span>
+                    </div>
+                    <h3 class="skill-name">Express.js</h3>
+                    <p class="skill-desc">
+                        Build APIs with less friction.
+                    </p>
+                    <div class="skill-meter-wrap">
+                        <div class="skill-meter-info">
+                            <span>Proficiency</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill fill-js"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+
+                        <span class="skill-tag">Middleware</span>
+                        <span class="skill-tag">Routing</span>
+                        <span class="skill-tag">HTTP Methods</span>
+                        <span class="skill-tag">Controllers</span>
+                    </div>
+                </div>
+                <!-- NoSQL Card -->
+                <div class="skill-card skill-card-html">
+                    <div class="skill-top">
+                        <div class="skill-icon-wrap icon-html">
+                            🍃
+                        </div>
+                        <span class="skill-badge">NOSQL DATABASE</span>
+                    </div>
+                    <h3 class="skill-name">MongoDB</h3>
+                    <p class="skill-desc">
+                        Flexible data, ready to grow.
+                    </p>
+                    <div class="skill-meter-wrap">
+                        <div class="skill-meter-info">
+                            <span>Proficiency</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-progress-bar">
+                            <div class="skill-progress-fill fill-html"></div>
+                        </div>
+                    </div>
+                    <div class="skill-tags">
+
+                        <span class="skill-tag">Collections</span>
+                        <span class="skill-tag">MongoDB ODM</span>
+                        <span class="skill-tag">CRUD Queries</span>
+                        <span class="skill-tag">Schemas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="education-section" id="education">
+            <div class="section-header">
+                <div class="section-badge">🎓 Academic Background</div>
+                <h2 class="section-title">Educational <span class="gradient-text">Qualification</span></h2>
+                <p class="section-subtitle">
+                    Academic foundation and specialized training empowering my front-end engineering expertise.
+                </p>
+            </div>
+
+            <div class="education-card">
+                <div class="education-header">
+                    <div class="education-title-group">
+                        <div class="education-icon">🎓</div>
+                        <div>
+                            <h3 class="degree-title">Bachelor of Computer Applications (BCA)</h3>
+                            <div class="degree-major">Specialization in Front-End Web Development</div>
+                            <div class="degree-institution">🏛️ <strong>Kurukshetra University</strong>, Kurukshetra
+                            </div>
+                        </div>
+                    </div>
+                    <div class="education-badge">
+                        <span class="edot"></span>
+                        Bachelor's Degree
+                    </div>
+                </div>
+
+                <p class="education-desc">
+                    Graduated from <strong>Kurukshetra University, Kurukshetra</strong> with a Bachelor of Computer
+                    Applications (BCA) degree, specializing in modern Full Stack web development and core computer
+                    science fundamentals. Acquired strong foundations in web technologies, responsive UI/UX
+                    implementation, client-side scripting, and building interactive web applications from concept to
+                    deployment.
+                </p>
+
+                <div class="coursework-title">
+                    ⚡ Core Subjects &amp; Key Areas of Study
+                </div>
+
+                <div class="coursework-grid">
+                    <div class="course-item">
+                        <span class="bullet"></span>
+                        <span>Full Stack Web Development</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="bullet"></span>
+                        <span>Responsive UI/UX &amp; Web Design</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="bullet"></span>
+                        <span>Client-Side Scripting (JS / ES6+)</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="bullet"></span>
+                        <span>DOM Manipulation &amp; Events</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="bullet"></span>
+                        <span>Async / Fetch API &amp; JSON</span>
+                    </div>
+                    <div class="course-item">
+                        <span class="bullet"></span>
+                        <span>Web Standards &amp; Modern Workflows</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Address & Contact Information Section -->
+        <section class="contact-section" id="contact">
+            <div class="section-header">
+                <div class="section-badge">📍 Address &amp; Contact Info</div>
+                <h2 class="section-title">Direct <span class="gradient-text">Contact &amp; Address</span></h2>
+                <p class="section-subtitle">
+                    Reach out directly for freelance projects, full-time opportunities, or collaborations. I am always
+                    excited to connect!
+                </p>
+            </div>
+
+            <!-- Address Grid -->
+            <div class="address-grid">
+                <!-- Name Card -->
+                <div class="address-card card-name">
+                    <div class="address-icon-box icon-box-name">
+                        👤
+                    </div>
+                    <div class="address-label">Full Name</div>
+                    <h3 class="address-value">Mandeep Singh</h3>
+                    <div class="address-sub">Front-End Web Developer</div>
+                </div>
+
+                <!-- Phone Card -->
+                <a href="tel:+918708513764" class="address-card card-phone">
+                    <div class="card-arrow">↗</div>
+                    <div class="address-icon-box icon-box-phone">
+                        📞
+                    </div>
+                    <div class="address-label">Mobile Number</div>
+                    <h3 class="address-value">+91 8708513764</h3>
+                    <div class="address-sub">Click to Call Directly</div>
+                </a>
+
+                <!-- Email Card -->
+                <a href="mailto:s20fe5gcafe@gmail.com" class="address-card card-email">
+                    <div class="card-arrow">↗</div>
+                    <div class="address-icon-box icon-box-email">
+                        ✉️
+                    </div>
+                    <div class="address-label">Email Address</div>
+                    <h3 class="address-value">s20fe5gcafe@gmail.com</h3>
+                    <div class="address-sub">Click to Send an Email</div>
+                </a>
+
+                <!-- Location Card -->
+                <a href="https://www.google.com/maps/search/?api=1&query=Kurukshetra,+Haryana,+India" target="_blank"
+                    rel="noopener noreferrer" class="address-card card-location">
+                    <div class="card-arrow">↗</div>
+                    <div class="address-icon-box icon-box-location">
+                        📍
+                    </div>
+                    <div class="address-label">Location / Address</div>
+                    <h3 class="address-value">Kurukshetra, Haryana, India</h3>
+                    <div class="address-sub">Open in Google Maps</div>
+                </a>
+            </div>
+
+            <!-- Interactive Banner & Message Form -->
+            <div class="cta-section-wrap">
+                <div class="cta-bg">
+                    <div class="cta-badge">⚡ Instant Contact Options</div>
+                    <h2 class="cta-title">Ready to bring your idea to life?<br />Let's build together. ✨</h2>
+                    <p class="cta-desc">
+                        Have a project in mind or want to collaborate? Connect directly on WhatsApp, phone, or send an
+                        email.
+                    </p>
+
+                    <div class="quick-contact-pills">
+                        <a href="https://wa.me/918708513764?text=Hi%20Mandeep,%20I%20came%20across%20your%20portfolio!"
+                            target="_blank" rel="noopener noreferrer" class="pill-contact whatsapp-pill">
+                            💬 WhatsApp Chat
+                        </a>
+                        <a href="tel:+918708513764" class="pill-contact call-pill">
+                            📞 Direct Call (+91 8708513764)
+                        </a>
+                        <a href="mailto:s20fe5gcafe@gmail.com" class="pill-contact email-pill">
+                            ✉️ s20fe5gcafe@gmail.com
+                        </a>
+                    </div>
+
+                    <form class="subscribe-form" id="contactForm">
+                        <div class="input-row">
+                            <input type="email" id="emailInput" placeholder="Enter your email address..." required />
+                            <button type="submit" class="btn-submit">Let's Start →</button>
+                        </div>
+                        <p class="form-hint">🔰 Fast response guaranteed within 24 hours.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-copy">© 2026 <span>Mandeep Singh</span>. <span class="rightsreserve">All rights
+                reserved.</span></p>
+        <div class="footer-links">
+            <a href="#summary">Summary</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </footer>
+
+    <script>
+
+        // mouse pointer moving animation
+
+        const custom = document.querySelector(".custom-cursor");
+        const dot = document.querySelector(".custom-cursor-dot");
+
+        document.addEventListener("mousemove", (e) => {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            custom.style.left = `${x}px`;
+            custom.style.top = `${y}px`;
+            dot.style.left = `${x}px`;
+            dot.style.top = `${y}px`;
+
+            document.body.classList.add("cursor-visible");
+        })
+
+        document.addEventListener("pointerleave", () => {
+            document.body.classList.remove("cursor-visible");
+        });
+
+        // partical moving canvas animation
+        const canvas = document.getElementById('c');
+        const ctx = canvas.getContext('2d');
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        const mouse = { x: null, y: null, radius: 150 };
+        const maxDistance = 110;
+        const particleCount = 50;
+
+        // Create particles
+        const particles = Array.from({ length: particleCount }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.8,
+            vy: (Math.random() - 0.5) * 0.8,
+            radius: Math.random() * 2 + 1
+        }));
+
+        // Mouse tracking
+        window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+        window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Main 60 FPS animation loop
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+
+                // 1. Move & Screen wrap
+                p.x = (p.x + p.vx + width) % width;
+                p.y = (p.y + p.vy + height) % height;
+
+                // 2. Mouse repulsion
+                if (mouse.x !== null) {
+                    const dx = mouse.x - p.x;
+                    const dy = mouse.y - p.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (dist < mouse.radius) {
+                        const force = (mouse.radius - dist) / mouse.radius;
+                        p.x -= (dx / dist) * force * 3;
+                        p.y -= (dy / dist) * force * 3;
+                    }
+                }
+
+                // 3. Draw particle dot
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(165, 180, 252, 0.7)';
+                ctx.fill();
+
+                // 4. Draw connecting lines to neighboring particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < maxDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(165, 180, 252, ${(1 - dist / maxDistance) * 0.2})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        const toggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const MOON_ICON = 'moon-dark-theme-svgrepo-com.svg';
+        const SUN_ICON = 'shining-sun-svgrepo-com.svg';
+
+        let isDark = true;
+
+        toggleBtn.addEventListener('click', () => {
+            isDark = !isDark;
+            document.body.classList.toggle('light', !isDark);
+
+            // Smooth rotate and swap icon
+            themeIcon.style.transform = 'rotate(180deg) scale(0.6)';
+            themeIcon.style.opacity = '0.3';
+
+            setTimeout(() => {
+                themeIcon.src = isDark ? MOON_ICON : SUN_ICON;
+                themeIcon.style.transform = 'rotate(0deg) scale(1)';
+                themeIcon.style.opacity = '1';
+            }, 150);
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('.btn-submit');
+            btn.textContent = '✅ Sent!';
+            btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+            setTimeout(() => {
+                btn.textContent = "Let's Start →";
+                btn.style.background = '';
+                document.getElementById('emailInput').value = '';
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>
