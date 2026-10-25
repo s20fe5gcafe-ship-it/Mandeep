@@ -2160,10 +2160,18 @@
   }
 
   @media screen and (max-width: 900px) {
-   .custom-cursor,
-  .custom-cursor-dot{
-   display:none;
-  }
+
+       .body {
+        cursor:default;
+       }
+   
+       .custom-cursor {
+        display:none;
+       }
+   
+       .custom-cursor-dot{
+        display:none;
+       }
       .hero {
           flex-direction: column;
           margin-right: 0px;
