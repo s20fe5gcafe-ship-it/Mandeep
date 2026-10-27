@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, rgb(100, 103, 245), #a855f7, #ec4899);
+            background-size: 400% 400%;
+            background-repeat: no-repeat;
+            height: 100vh;
+            /* filter: blur(20px); */
+            width: 100%;
+            animation: bg 12s ease-in-out infinite;
+            overflow-x: hidden;
+            color: rgb(80, 255, 4);
+        }
+
+        @keyframes bg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            20% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .circle {
+            background: rgba(255, 255, 255, 0.2);
+            /* filter: blur(1px); */
+            /* border: .5px solid rgb(254, 252, 252); */
+            border-radius: 50%;
+            position: absolute;
+            z-index: 100;
+            /* box-shadow: 0.5px 0.5px 1px  rgb(254, 252, 252) ; */
+            animation: circlemove 10s ease-in-out infinite;
+            backdrop-filter: blur(15px);
+        }
+
+        @keyframes circlemove {
+            0% {
+                transform: translateY(0px);
+            }
+
+            25% {
+                transform: translateX(20px);
+            }
+
+            50% {
+                transform: translateY(-40px);
+            }
+
+            75% {
+                transform: translateX(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .f1 {
+            height: 200px;
+            width: 200px;
+            /* background-color: black; */
+            /* background: transparent; */
+            top: 15%;
+            left: -20px;
+            /* animation-timing-function: ease-in; */
+            animation-delay: 2s;
+        }
+
+        .f2 {
+            height: 150px;
+            width: 150px;
+            /* background-color: black; */
+            /* background: transparent; */
+            right: 100px;
+            top: 10%;
+            animation-delay: 3s;
+            /* animation-timing-function: ease-in-out; */
+        }
+
+        .f3 {
+            height: 150px;
+            width: 150px;
+            /* background-color: black; */
+            /* background: transparent; */
+            bottom: -50px;
+            right: 20%;
+            /* animation-timing-function: ease; */
+            animation-delay: 4s;
+
+        }
+
+        .f4 {
+            height: 150px;
+            width: 150px;
+            /* background-color: black; */
+            /* background: transparent; */
+            top: 30%;
+            right: 45%;
+            /* animation-timing-function: ease; */
+            animation-delay: 1s;
+        }
+
+        .f5 {
+            height: 150px;
+            width: 150px;
+            /* background-color: black; */
+            /* background: transparent; */
+            left: 18%;
+            bottom: 10%;
+            /* animation-timing-function: ease-in-out; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle f1"></div>
+    <div class="circle f2"></div>
+    <div class="circle f3"></div>
+    <div class="circle f4"></div>
+    <div class="circle f5"></div>
+</body>
+
+</html>
