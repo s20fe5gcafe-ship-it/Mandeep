@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+
+            padding: 30px;
+            border-radius: 15px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .input-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        #taskInput {
+            flex: 1;
+
+            padding: 12px;
+
+            border: 2px solid #ddd;
+            border-radius: 8px;
+
+            font-size: 16px;
+        }
+
+        #addBtn {
+            padding: 12px 20px;
+
+            border: none;
+            border-radius: 8px;
+
+            background: #667eea;
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        #addBtn:hover {
+            background: #4f63d2;
+        }
+
+        #taskList {
+            margin-top: 25px;
+
+            list-style: none;
+        }
+
+        li {
+            background: #f3f3f3;
+
+            padding: 12px;
+
+            margin-bottom: 10px;
+
+            border-radius: 8px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .deleteBtn {
+            background: #ff4d4d;
+            color: white;
+
+            border: none;
+            border-radius: 6px;
+
+            padding: 7px 10px;
+
+            cursor: pointer;
+        }
+
+        .deleteBtn:hover {
+            background: #d93636;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>My To-Do List</h1>
+
+        <div class="input-box">
+            <input type="text" id="taskInput" placeholder="Enter a task...">
+            <button id="addBtn">Add</button>
+        </div>
+
+        <ul id="taskList"></ul>
+
+    </div>
+
+    <script>
+        let taskInput = document.querySelector("#taskInput");
+        let addBtn = document.querySelector("#addBtn");
+        let taskList = document.querySelector("#taskList");
+
+        addBtn.addEventListener("click", function () {
+
+            let task = taskInput.value;
+
+            if (task === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            // Create a new li
+            let li = document.createElement("li");
+
+            // Put task inside li
+            li.innerText = task;
+
+            // Create delete button
+            let deleteBtn = document.createElement("button");
+
+            deleteBtn.innerText = "Delete";
+
+            deleteBtn.classList.add("deleteBtn");
+
+            // Delete task
+            deleteBtn.addEventListener("click", function () {
+                li.remove();
+            });
+
+            // Put button inside li
+            li.appendChild(deleteBtn);
+
+            // Put li inside ul
+            taskList.appendChild(li);
+
+            // Clear input
+            taskInput.value = "";
+        });
+    </script>
+</body>
+
+</html>
